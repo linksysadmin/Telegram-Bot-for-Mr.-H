@@ -7,6 +7,7 @@ services:
     image: mariadb:latest
     env_file:
       - ./.env
+    restart: always
     volumes:
       - ./create_db.sql:/docker-entrypoint-initdb.d/create_db.sql
       - ./db_data:/var/lib/mysql
@@ -19,7 +20,7 @@ services:
     image: redis:alpine
     env_file:
       - ./.env
-    restart: on-failure
+    restart: always
     ports:
       - "6479:6379"
     networks:
