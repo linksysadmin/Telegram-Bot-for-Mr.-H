@@ -24,7 +24,6 @@ services:
       - ./.env
     restart: always
     depends_on:
-      - redis
       - mysql
     ports:
       - "8010:8000"
